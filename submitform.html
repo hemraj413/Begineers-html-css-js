@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            height: 100vh;
+            width: 100vw;
+            background-color: #f34;
+            display: flex;flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #form-submit{
+            height: 60vh;
+            
+            width: 60%;
+            background-color: #3f4;
+            box-shadow: 6px 6px 30px 30px #c23;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            border-radius: 20px;
+        }
+        input{
+            border-radius: 10px;
+            border: none;
+            box-shadow: 2px 2px 5px 5px #1c2;color: #000;
+            font-size: 25px;
+        }
+        #fname, #lname, #email, #password, #re-password{
+            padding: 20px 50px;
+            width: 60%;
+            
+        }
+        #submit{
+            padding: 10px;
+            align-self: center;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+   <form id="form-submit">
+    <input type="text" placeholder="first name" id="fname">
+    <input type="text" placeholder="last name" id="lname">
+    <input type="email" placeholder="e-mail" id="email">
+    <input type="password" placeholder="Password" id="password">
+    <input type="password" placeholder="re-type password" id="re-password">
+    <input type="submit" id="submit">
+
+   </form>
+    </div>
+    <script>
+        document.getElementById("form-submit").addEventListener('submit', (e)=>{
+            e.preventDefault()
+
+            const fname = document.getElementById("fname").value
+            const lname = document.getElementById("lname").value
+            const email = document.getElementById("email").value
+            const password = document.getElementById("password").value
+            const rePassword = document.getElementById("re-password").value
+        
+            if(password===rePassword){
+        document.getElementById("form-submit").style.display = "none"
+        document.getElementsByClassName('container')[0].innerHTML = `<h3> Welcome to the website ${fname + " " +lname}. Your emai is ${email}<h3>`
+                
+            }else{
+        document.getElementsByClassName('container')[0].innerHTML ="<p>Your password doesn't match<p>"
+
+            }
+        })
+
+    </script>
+</body>
+</html>
